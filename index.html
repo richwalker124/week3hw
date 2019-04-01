@@ -5,33 +5,89 @@
         <title>
             Hangman
         </title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrapchanges.css">
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
     </head>
     <body>
 
-        <!--Stylization for hangman, letter selection on the left, words and drawing on the right-->
-        <container>
-            <!--***************NEEED A HEADER ********************-->
 
-            <row>
-                <div class = "col-md-12 "> <h1 >HANGMAN!!!!!</h1></div>
+    <div class = "container">
+        <h1>Rich's Hangman Game</h1>
+        
+        <div class= "row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class = "card" style = "width: 18rem;">
+                    <h4 class = "card-title" style = "text-align: center">Letters</h4>
+                    <div id="button"></div> 
+                </div>  
+            </div>
+            <div class= "col-md-4"></div>
+            </div>
+        <div class = "row">
+            <div class = "col-md-4"></div>
+            <div class ="col-md-4">
+                <div class = "row">
+                    <div class = "col-md-12">
+                        <h2 >Lives:<h2 id = "lives"></h2> </h2>
+                    </div>
+                </div>
+                 
+                <span id = "hangman"></span>
+                
+            </div>
+            <div class = "col-md-4"></div>
+        </div>
+            <div class = "row">
+                <div class = "col-md-4"></div>
+                <div class = "col-md-4">
+                    <h3>Guesses</h3>
+                    <span id = "lettersGuessed"></span>
+                </div>
+                <div class = "col-md-4"></div>
+
+            </div>
+
+        </div>
+        
+        <!--Stylization for hangman, letter selection on the left, words and drawing on the right-->
+        <!-- <container>
+            ***************NEEED A HEADER ********************-->
+
+            <!-- <row>
+                <div class = "col-md-12">
+                    <h1>Rich's Hangman Game</h1>
+                </div>
             </row>
             <row>
-                <div class= "col-md-1"></div>
-
-                <!--For our letters right below!-->
-                <div class= "col-md-3">
-                    <div class = "card" style = "width: 18rem;">
+                <div class = "col-md-4 col-xs-1"></div>
+                <div class = "col-md-4 col-xs-10">
+                     <div class = "card" style = "width: 18rem;">
                         <h4 class = "card-title" style = "text-align: center">Letters</h4>
                      <div id="button"></div>   
                     </div>
-                    
                 </div>
+                <div class = "col-md-4 col-xs-1"></div>
+            </row> -->
+
+
+            <!-- <row>
+                <div class = "col-md-12 "> <h1 >HANGMAN!!!!!</h1></div>
+            </row> -->
+            <!-- <row>
+                <div class= "col-md-1"></div>
+
+                For our letters right below!-->
+                <!-- <div class= "col-md-3"> -->
+                   
+                    
+                <!-- </div>
                 <div class="col-md-2"> </div>
 
-                <!--For our Words!-->
-                <div class="col-md-5">
+                For our Words!-->
+                <!-- <div class="col-md-5">
                    <h3>Guesses</h3>
                     <span id = "lettersGuessed"></span>
                 </div>
@@ -47,9 +103,9 @@
                             <h2 id = "lives">Lives: </h2>
                         </div>
                     </row>
-                </div>
+                </div> 
             </row>
-        </container>
+        </container>  -->
         <style>
             .button {
                 width: 30px;
@@ -70,9 +126,17 @@
                 padding: 5px;
                 color:navy;
             }
+            h2{
 
+            }
+            h3 {
+                text-align: center;
+                padding-bottom: 20px;
+                padding-top: 20px;
+            }
             h1 {
                 text-align: center;
+                padding-bottom: 20px;
             }
         </style>
         <script>
@@ -156,6 +220,7 @@ function equalCheck (a, b){
               var d = b.toString();
               if (c === d){
                 alert("You win!")
+                break;
               }
           }
             //This code runs everytime a button is pressed! ****************************
@@ -174,7 +239,7 @@ function gameLogic(){
             hangman.innerHTML = wordCheck;
 
             //Displays lives
-            lives.innterHTML = lives;
+            lives.innerHTML = lives;
             //Check user guess to word
                         //checks if user guess is present in word
                         if (word.indexOf(recentGuess) >= 0){
